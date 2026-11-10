@@ -196,11 +196,11 @@ export const productions: TheatreProduction[] = [
       'Pravice za gledališko priredbo in uporabo prevoda se še usklajujejo. Scenarij in celoten posnetek zato nista objavljena.',
     srCyrl: {
       description:
-        'Аматерска позоришна представа настала по мотивима омиљене дечје сликовнице Julia Donaldson, у којој се мали миш довитљивошћу сналази међу великим шумским животињама.',
+        'Аматерска позоришна представа настала по мотивима омиљене дечје сликовнице Џулије Доналдсон, у којој се мали миш довитљивошћу сналази међу великим шумским животињама.',
       credits: [
-        { label: 'Оригинално дело', value: 'Julia Donaldson, The Gruffalo' },
-        { label: 'Превод на српски', value: 'Zoran Penevski' },
-        { label: 'Позоришна адаптација', value: 'Dlaka' },
+        { label: 'Оригинално дело', value: 'Џулија Доналдсон, Груфало' },
+        { label: 'Превод на српски', value: 'Зоран Паневски' },
+        { label: 'Позоришна адаптација', value: 'Длака' },
       ],
       rightsNote:
         'Права за позоришну адаптацију и употребу превода још се усаглашавају. Сценарио и целокупан снимак зато нису објављени.',

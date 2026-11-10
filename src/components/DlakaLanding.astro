@@ -12,6 +12,7 @@ const t = dlakaLocaleContent(locale);
 const sr = locale === 'sr-Cyrl';
 const localizedProductions = productions.map((production) => ({
   ...production,
+  title: sr && production.slug === 'grozon' ? 'Грозон' : production.title,
   description: sr ? production.srCyrl.description : production.description,
   credits: sr ? production.srCyrl.credits : production.credits,
   rightsNote: sr ? production.srCyrl.rightsNote : production.rightsNote,

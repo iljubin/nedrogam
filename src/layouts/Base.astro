@@ -35,7 +35,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <a class="skip" href="#main">{isSerbian ? 'Пређи на главни садржај' : 'Preskoči na glavno vsebino'}</a>
     <header class="border-b border-[var(--line)]">
       <div class="wrap flex min-h-[82px] items-center justify-between gap-6">
-        <a href="/" class="flex h-[50px] w-[162px] shrink-0 items-center no-underline sm:h-[58px] sm:w-[190px]" style="text-decoration:none" aria-label="Ne, drogam – domača stran">
+        <a href="/" class="flex h-[50px] w-[162px] shrink-0 items-center no-underline sm:h-[58px] sm:w-[190px]" style="text-decoration:none" aria-label={isSerbian ? 'Ne, drogam – почетна страница' : 'Ne, drogam – domača stran'}>
           <img src="/logo-ne-drogam.svg?v=6" width="190" height="58" alt="" class="h-[50px] w-[162px] sm:h-[58px] sm:w-[190px]" />
         </a>
         <nav aria-label={isSerbian ? 'Главна навигација' : 'Glavna navigacija'} class="hidden flex-wrap items-center gap-5 text-sm font-semibold md:flex">
@@ -70,7 +70,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             <a href="/preventiva/">{isSerbian ? 'Превенција' : 'Preventiva'}</a>
             <a href="/prispevki/">{isSerbian ? 'Чланци' : 'Prispevki'}</a>
             <a href="/sodelovanje/">{isSerbian ? 'Сарадња' : 'Sodelovanje'}</a>
-            <a href="/dlaka/">{isSerbian ? 'Подржана иницијатива: Dlaka' : 'Podprta pobuda: Dlaka'}</a>
+            <a href="/dlaka/">{isSerbian ? 'Подржана иницијатива: Длака' : 'Podprta pobuda: Dlaka'}</a>
           </div>
         </div>
         <div>
