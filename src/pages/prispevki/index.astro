@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+const posts = [
+  {title:'Preventiva se začne zgodaj: zakaj so pomembna varna okolja',date:'10. 11. 2026',href:'/prispevki/zgodnja-preventiva/',desc:'Kaj nacionalna resolucija razume kot zgodnjo preventivo in zakaj vključuje širše okolje mlade osebe.'},
+  {title:'Pogovor brez obsojanja o drogah',date:'10. 11. 2026',href:'/prispevki/pogovor-brez-obsojanja/',desc:'Izhodišča za spoštljiv pogovor, jasne meje in pravočasno podporo.'},
+  {title:'Ko ponudba postane pritisk: mladi in novačenje',date:'10. 11. 2026',href:'/prispevki/mladi-in-novačenje/',desc:'Kaj evropski viri opisujejo o izkoriščanju mladih in kako se varno odzvati.'},
+  {title:'Kokain: kaj je koristno vedeti',date:'10. 11. 2026',href:'/prispevki/kokain/',desc:'Tveganja uporabe kokaina in kako razumeti slovenske podatke.'},
+  {title:'MDMA in druge snovi v nočnem življenju',date:'10. 11. 2026',href:'/prispevki/mdma-in-nocno-zivljenje/',desc:'Zanesljive informacije o nepredvidljivi sestavi, okoliščinah in iskanju nujne pomoči.'},
+];
+---
+<Base title="Prispevki"><section class="page-head"><div class="wrap"><span class="eyebrow">Znanje za vsakdan</span><h1 class="serif">Prispevki</h1><p class="max-w-2xl text-lg leading-8 muted">Skrbno pripravljene vsebine na podlagi nacionalnih in mednarodnih virov.</p></div></section><section class="wrap section grid gap-4 md:grid-cols-3">{posts.map((post)=><article class="card"><span class="eyebrow">Uvodni prispevek · {post.date}</span><h2 class="serif text-2xl">{post.title}</h2><p class="muted leading-7">{post.desc}</p><a href={post.href}>Preberi prispevek →</a></article>)}</section></Base>

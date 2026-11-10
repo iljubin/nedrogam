@@ -1,0 +1,9 @@
+---
+import { dlakaLocaleContent, type DlakaLocale } from '../i18n/dlaka';
+
+const { email = 'kontakt@nedrogam.org', locale = 'sl' } = Astro.props as { email?: string; locale?: DlakaLocale };
+// Verified payment instructions may be added here after organizational confirmation.
+const paymentDetails = null;
+const t = dlakaLocaleContent(locale);
+---
+<section class="rounded-[24px] bg-[#302b39] p-7 text-white md:p-9"><span class="text-xs font-bold uppercase tracking-[.15em] text-[#e6c393]">{t.supportEyebrow}</span><h2 class="serif mt-3 text-3xl md:text-4xl">{t.supportTitle}</h2><p class="max-w-3xl leading-7 text-white/75">{t.supportCopy}</p><ul class="grid gap-2 text-white/85 sm:grid-cols-2"><li>{t.financial}</li><li>{t.materials}</li><li>{t.sewing}</li><li>{t.scenery}</li><li>{t.volunteer}</li><li>{t.ngoCooperation}</li></ul><p class="mt-5 max-w-3xl text-sm text-white/70">{t.supportDisclosure}</p>{paymentDetails && <div class="mt-5">{paymentDetails}</div>}<a class="btn light mt-3" href={`mailto:${email}?subject=${encodeURIComponent(t.supportSubject)}`}>{t.supportCta}</a><p class="mt-4 text-sm text-white/75">{email}</p></section>

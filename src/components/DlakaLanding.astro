@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import DlakaSupport from './DlakaSupport.astro';
+import ProductionGallery from './ProductionGallery.astro';
+import { Image } from 'astro:assets';
+import ensembleImage from '../assets/dlaka/photo_2026-11-10_14-16-07.jpg';
+import owlVideo from '../assets/dlaka/video_2026-11-10_14-16-21.mp4';
+import owlPoster from '../assets/dlaka/owl-poster.jpg';
+import { productions } from '../data/theatre';
+import { dlakaLocaleContent, type DlakaLocale } from '../i18n/dlaka';
+
+const { locale } = Astro.props as { locale: DlakaLocale };
+const t = dlakaLocaleContent(locale);
+const sr = locale === 'sr-Cyrl';
+const localizedProductions = productions.map((production) => ({
+  ...production,
+  description: sr ? production.srCyrl.description : production.description,
+  credits: sr ? production.srCyrl.credits : production.credits,
+  rightsNote: sr ? production.srCyrl.rightsNote : production.rightsNote,
+}));
+const primaryPath = '/dlaka/';
+const slovenianPath = '/sl/dlaka/';
+const otherPath = sr ? slovenianPath : primaryPath;
+const mailSubject = encodeURIComponent(t.contactSubject);
+const mailHref = `mailto:kontakt@nedrogam.org?subject=${mailSubject}`;
+const langAlternates = [
+  { lang: 'sr-Cyrl', path: primaryPath },
+  { lang: 'sl', path: slovenianPath },
+];
+---
+<Base
+  title={t.title}
+  description={t.description}
+  lang={t.lang}
+  ogLocale={t.ogLocale}
+  languageAlternates={langAlternates}
+>
+  <div class="wrap flex justify-end pt-4">
+    <nav aria-label={t.switchLabel} class="flex items-center gap-2 rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">
+      {sr ? <span aria-current="page">Српски</span> : <a href={otherPath}>Српски</a>}
+      <span aria-hidden="true" class="muted">|</span>
+      {sr ? <a href={otherPath}>Slovenščina</a> : <span aria-current="page">Slovenščina</span>}
+    </nav>
+  </div>
+
+  <section class="bg-[#302b39] py-16 text-white md:py-24">
+    <div class="wrap grid gap-10 md:grid-cols-[1.1fr_.9fr] md:items-center">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-[.15em] text-[#e6c393]">{t.groupEyebrow}</span>
+        <h1 class="serif mt-5 text-5xl leading-[.98] md:text-7xl">{t.heroTitle}</h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-white/75">{t.heroIntro}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="btn light" href="#podpora">{t.supportNext}</a>
+          <a class="rounded-full border border-white/40 px-5 py-3 font-semibold text-white no-underline hover:bg-white/10" href="#pridruzite-se">{t.joinUs}</a>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-[28px] bg-white/10 shadow-xl">
+        <Image src={ensembleImage} alt={t.ensembleAlt} class="aspect-[4/3] w-full object-cover" widths={[480, 800, 1280]} sizes="(max-width: 768px) 100vw, 45vw" loading="eager" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section grid gap-10 md:grid-cols-[.75fr_1.25fr]" id="o-skupini">
+    <div><span class="eyebrow">{t.aboutEyebrow}</span><h2 class="serif mt-3 text-4xl">{t.aboutTitle}</h2></div>
+    <div class="prose"><p>{t.aboutParagraph1}</p><p>{t.aboutParagraph2}</p><p>{t.aboutParagraph3}</p></div>
+  </section>
+
+  <section class="bg-[#f0e9e2] py-14" id="zgodovina">
+    <div class="wrap max-w-4xl">
+      <span class="eyebrow">{sr ? 'Наша прича' : 'Naša zgodba'}</span>
+      <h2 class="serif mt-3 text-4xl md:text-5xl">{t.historyTitle}</h2>
+      <div class="mt-6 grid gap-4 text-lg leading-8 muted">
+        <p>{t.historyLead} <strong class="text-[var(--ink)]">{t.historyName}</strong>. {t.historyNameSuffix} <strong class="text-[var(--ink)]">{t.historyAcronym}</strong>.</p>
+        {t.historyParagraphs.map((paragraph, index) => <p class={index === 0 ? 'serif text-2xl text-[var(--ink)]' : ''}>{paragraph}</p>)}
+        <p><strong class="text-[var(--ink)]">{t.historyWelcome}</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#eaf0e8] py-12"><div class="wrap grid gap-5 md:grid-cols-[.7fr_1.3fr] md:items-center"><span class="eyebrow">{t.culturalTitle}</span><p class="serif m-0 text-2xl leading-snug md:text-4xl">{t.culturalCopy}</p></div></section>
+
+  <section class="bg-[#f0e9e2] py-16" id="predstave">
+    <div class="wrap"><span class="eyebrow">{t.productionsEyebrow}</span><h2 class="serif mt-3 text-4xl md:text-5xl">{t.productionsTitle}</h2><p class="mt-4 max-w-2xl leading-7 muted">{t.productionsIntro}</p>
+      <div class="mt-8 grid gap-6">
+        {localizedProductions.map((production) => <article class="rounded-[24px] border border-[#d8cdc1] bg-white p-6 md:p-9">
+          <div class="flex flex-wrap items-center justify-between gap-3"><span class="eyebrow">{production.status === 'uprizorjena' ? t.performed : t.inPreparation}</span></div>
+          <h3 class="serif mt-4 text-4xl md:text-5xl">{production.title}</h3><p class="mt-4 max-w-3xl text-lg leading-8 muted">{production.description}</p>
+          <div class="mt-6 border-t border-[var(--line)] pt-5"><h4 class="text-sm font-bold uppercase tracking-[.12em]">{t.credits}</h4><dl class="mt-3 grid gap-3 sm:grid-cols-3">{production.credits.map((credit) => <div><dt class="text-sm muted">{credit.label}</dt><dd class="mt-1 font-semibold">{credit.value}</dd></div>)}</dl></div>
+          {production.rightsNote && <p class="mt-6 border-l-2 border-[#c3936b] pl-4 text-sm leading-6 muted">{production.rightsNote}</p>}
+          <ProductionGallery production={production} locale={locale}/>
+          <figure class="mt-6 overflow-hidden rounded-2xl border border-[var(--line)] bg-white"><video class="block max-h-[75vh] w-full bg-black object-contain md:max-h-[80vh]" controls preload="metadata" playsinline poster={owlPoster.src} aria-label={t.videoLabel}><source src={owlVideo} type="video/mp4"/>{t.videoFallback}</video><figcaption class="p-4 text-sm muted">{t.owlVideoCaption}</figcaption></figure>
+        </article>)}
+      </div>
+      <p class="mt-5 text-sm muted">{t.mediaPending}</p>
+    </div>
+  </section>
+
+  <section class="wrap section" id="podpora"><DlakaSupport locale={locale}/></section>
+
+  <section class="bg-[#eaf0e8] py-16" id="pridruzite-se">
+    <div class="wrap grid gap-8 md:grid-cols-[1fr_.85fr] md:items-center">
+      <div><span class="eyebrow">{t.joinEyebrow}</span><h2 class="serif mt-3 text-4xl md:text-5xl">{t.joinTitle}</h2><p class="mt-5 max-w-2xl leading-7 muted">{t.joinCopy}</p><a class="btn mt-3" href={mailHref}>{t.writeToUs}</a></div>
+      <div class="grid grid-cols-2 gap-3"><div class="card"><span class="text-2xl">✳</span><strong class="mt-3 block">{t.acting}</strong></div><div class="card"><span class="text-2xl">◌</span><strong class="mt-3 block">{t.costumes}</strong></div><div class="card"><span class="text-2xl">⌂</span><strong class="mt-3 block">{t.sceneryLabel}</strong></div><div class="card"><span class="text-2xl">♫</span><strong class="mt-3 block">{t.musicLights}</strong></div></div>
+    </div>
+  </section>
+</Base>

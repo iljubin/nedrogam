@@ -1,0 +1,11 @@
+---
+/**
+ * Reusable theatre media layout. Keep this component unimported on public pages
+ * until copyright, performer consent, and media publication permissions pass review.
+ * Provide only approved, locally stored photo/video assets and verified captions.
+ */
+interface Photo { src: string; alt: string; caption?: string; credit?: string }
+interface Video { src: string; poster?: string; title: string; captions?: string }
+const { photos = [], videos = [] } = Astro.props as { photos?: Photo[]; videos?: Video[] };
+---
+{(photos.length > 0 || videos.length > 0) && <section class="bg-[#f0e9e2] py-16" aria-label="Medijski arhiv gledališča"><div class="wrap"><span class="eyebrow">Arhiv in mediji</span><h2 class="serif mt-3 text-4xl md:text-5xl">Utrinki z odra</h2>{photos.length > 0 && <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{photos.map((photo) => <figure class="m-0 overflow-hidden rounded-2xl bg-white"><img class="aspect-[4/3] w-full object-cover" src={photo.src} alt={photo.alt} loading="lazy"/><figcaption class="p-4 text-sm">{photo.caption}{photo.credit && <span class="block muted">Foto: {photo.credit}</span>}</figcaption></figure>)}</div>}{videos.length > 0 && <div class="mt-8 grid gap-5 md:grid-cols-2">{videos.map((video) => <figure class="m-0 overflow-hidden rounded-2xl bg-white"><video class="w-full" controls preload="none" poster={video.poster}><source src={video.src}/>{video.captions && <track kind="captions" src={video.captions} srclang="sl" label="Slovenski podnapisi"/>Vaš brskalnik ne podpira videa.</video><figcaption class="p-4 font-semibold">{video.title}</figcaption></figure>)}</div>}</div></section>}

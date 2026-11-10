@@ -1,0 +1,31 @@
+---
+import Base from './Base.astro';
+const { frontmatter = {} } = Astro.props as {
+  frontmatter?: {
+    title?: string;
+    description?: string;
+    category?: string;
+    date?: string;
+    related?: { title: string; href: string }[];
+  };
+};
+const { title = 'Prispevek', description = 'Informativna vsebina Zavoda Ne, drogam.', category = 'Prispevki', date = '', related = [] } = frontmatter;
+---
+<Base title={title} description={description}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">{category}{date && ` · ${date}`}</span>
+      <h1 class="serif">{title}</h1>
+      <p class="max-w-2xl text-lg leading-8 muted">{description}</p>
+    </div>
+  </header>
+  <article class="wrap section prose"><slot /></article>
+  {related.length > 0 && <aside class="wrap pb-16" aria-labelledby="related-heading">
+    <div class="max-w-[780px] border-t border-[var(--line)] pt-6">
+      <h2 id="related-heading" class="serif text-2xl">Povezane vsebine</h2>
+      <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+        {related.map((item) => <li><a class="font-semibold text-[var(--green)] underline underline-offset-4" href={item.href}>{item.title} →</a></li>)}
+      </ul>
+    </div>
+  </aside>}
+</Base>
