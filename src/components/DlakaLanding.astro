@@ -4,8 +4,6 @@ import DlakaSupport from './DlakaSupport.astro';
 import ProductionGallery from './ProductionGallery.astro';
 import { Image } from 'astro:assets';
 import ensembleImage from '../assets/dlaka/photo_2026-11-10_14-16-07.jpg';
-import owlVideo from '../assets/dlaka/video_2026-11-10_14-16-21.mp4';
-import owlPoster from '../assets/dlaka/owl-poster.jpg';
 import { productions } from '../data/theatre';
 import { dlakaLocaleContent, type DlakaLocale } from '../i18n/dlaka';
 
@@ -88,7 +86,6 @@ const langAlternates = [
           <div class="mt-6 border-t border-[var(--line)] pt-5"><h4 class="text-sm font-bold uppercase tracking-[.12em]">{t.credits}</h4><dl class="mt-3 grid gap-3 sm:grid-cols-3">{production.credits.map((credit) => <div><dt class="text-sm muted">{credit.label}</dt><dd class="mt-1 font-semibold">{credit.value}</dd></div>)}</dl></div>
           {production.rightsNote && <p class="mt-6 border-l-2 border-[#c3936b] pl-4 text-sm leading-6 muted">{production.rightsNote}</p>}
           <ProductionGallery production={production} locale={locale}/>
-          <figure class="mt-6 overflow-hidden rounded-2xl border border-[var(--line)] bg-white"><video class="block max-h-[75vh] w-full bg-black object-contain md:max-h-[80vh]" controls preload="metadata" playsinline poster={owlPoster.src} aria-label={t.videoLabel}><source src={owlVideo} type="video/mp4"/>{t.videoFallback}</video><figcaption class="p-4 text-sm muted">{t.owlVideoCaption}</figcaption></figure>
         </article>)}
       </div>
       <p class="mt-5 text-sm muted">{t.mediaPending}</p>
