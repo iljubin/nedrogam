@@ -80,12 +80,6 @@ export const dlakaContent = {
     supportTitle: 'Не играмо за новац. Играмо за публику.',
     supportCopy:
       'Длака је волонтерско позориште. Наши глумци не примају хонораре, а представе стварамо из љубави према позоришту и дружењу. Наше представе су бесплатне. Ако желите да нас подржите новчаним прилогом, ваша помоћ биће искоришћена за координацију гостовања, материјалне трошкове и евентуалне трошкове ауторских права. О намени преосталих средстава заједнички одлучују чланови Длаке, са жељом да она помогну онима којима је помоћ потребна. Тако наша мала позоришна прича може да учини нешто добро и ван сцене.',
-    financial: 'Новчани прилози су добровољни',
-    materials: 'Координација гостовања',
-    sewing: 'Неопходни материјални трошкови',
-    scenery: 'Трошкови превоза',
-    volunteer: 'Ауторска права и лиценце',
-    ngoCooperation: 'О намени преосталих средстава заједнички одлучују чланови Длаке',
     supportDisclosure:
       'Длака тренутно делује у оквиру Завода Ne, drogam. Ако након покривања наведених трошкова преостану средства, чланови Длаке заједнички одлучују како ће их усмерити, са намером да подрже добротворне или друге друштвено корисне сврхе.',
     supportCta: 'Питајте нас о подршци →',
@@ -180,12 +174,6 @@ export const dlakaContent = {
     supportTitle: 'Ne igramo za denar. Igramo za občinstvo.',
     supportCopy:
       'Dlaka je prostovoljsko gledališče. Naši igralci za nastope ne prejemajo honorarjev, predstave pa ustvarjamo iz ljubezni do gledališča in druženja. Naše predstave so brezplačne. Če nas želite podpreti z denarnim prispevkom, bomo sredstva uporabili za koordinacijo gostovanj, nujne materialne in prevozne stroške ter morebitne stroške avtorskih pravic in licenc. O namenu preostalih sredstev skupaj odločajo člani Dlaka, z željo, da bi z njimi podprli dobrodelne ali druge družbeno koristne namene. Tako lahko naša majhna gledališka zgodba naredi nekaj dobrega tudi zunaj odra.',
-    financial: 'Prostovoljni denarni prispevki',
-    materials: 'Koordinacija gostovanj',
-    sewing: 'Nujni materialni stroški',
-    scenery: 'Stroški prevoza',
-    volunteer: 'Avtorske pravice in licence',
-    ngoCooperation: 'O namenu preostalih sredstev skupaj odločajo člani Dlaka',
     supportDisclosure:
       'Dlaka trenutno deluje v okviru Zavoda Ne, drogam. Če po kritju navedenih stroškov ostanejo sredstva, člani Dlaka skupaj odločijo o njihovi uporabi, z namenom podpreti dobrodelne ali druge družbeno koristne namene.',
     supportCta: 'Vprašajte nas o podpori →',
