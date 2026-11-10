@@ -47,8 +47,8 @@ export const dlakaContent = {
     historyParagraphs: [
       'Зашто лесковачко? Зашто казалиште? И зашто отворено?',
       'Па, позориште није у Лесковцу. Нису сви глумци Лесковчани. А колико знамо, у Лесковцу и не постоји позориште које се тако зове.',
+      'А казалиште? Негде на пола пута између гледалишча и позоришта. Помало као чардак ни на небу ни на земљи.',
       'Ми смо у Љубљани, гостујемо у фризерском салону Малтер, а врата су нам отворена за све који воле позориште.',
-      'Помало као чардак ни на небу ни на земљи.',
     ],
     historyWelcome: 'Добро дошли!',
     culturalTitle: 'Језик и културна разноликост',
@@ -144,9 +144,9 @@ export const dlakaContent = {
     historyAcronym: 'Dlaka',
     historyParagraphs: [
       'Zakaj leskovško? Zakaj kazalište? In zakaj odprto?',
-      'No, naše gledališče ni v Leskovcu. Tudi vsi igralci niso iz Leskovca. In kolikor vemo, v Leskovcu sploh ni gledališča s takšnim imenom.',
-      'Mi smo v Ljubljani, gostujemo v frizerskem salonu Malter, naša vrata pa so odprta vsem, ki imajo radi gledališče.',
-      'Nekako kot hiša, ki visi med nebom in zemljo.',
+      'No, gledališče ni v Leskovcu. Vsi igralci niso iz Leskovca. In kolikor vemo, v Leskovcu niti ni gledališča s takšnim imenom.',
+      'In kazalište? Nekje na pol poti med gledališčem in pozorištem. Malo kot čardak, ki ni ne na nebu ne na zemlji.',
+      'Smo v Ljubljani, gostujemo v frizerskem salonu Malter, naša vrata pa so odprta vsem, ki imajo radi gledališče.',
     ],
     historyWelcome: 'Dobrodošli!',
     culturalTitle: 'Jezik in kulturna raznolikost',
